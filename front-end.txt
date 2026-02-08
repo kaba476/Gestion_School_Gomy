@@ -1,0 +1,34 @@
+src/
+├── pages/                 # Toutes les pages principales
+│   ├── Login.jsx          # Page login (auth)
+│   ├── Dashboard.jsx      # Page d'accueil selon rôle
+│   ├── Classes.jsx        # Liste / création classes
+│   ├── Cours.jsx          # Liste / création cours
+│   ├── Presences.jsx      # Liste / ajout présences
+│   ├── Justifications.jsx # Liste / validation justifications
+│   ├── Alertes.jsx        # Liste / création alertes
+│   └── Profil.jsx         # Gestion du compte utilisateur
+│
+├── components/            # Composants réutilisables
+│   ├── Navbar.jsx
+│   ├── Sidebar.jsx
+│   ├── Table.jsx
+│   ├── Card.jsx
+│   ├── Button.jsx
+│   └── FormInput.jsx
+│
+├── services/              # Communication avec le backend
+│   ├── api.js             # Fetch / POST centralisé
+│   └── auth.js            # Login / logout / token management
+│
+├── utils/                 # Fonctions utilitaires
+│   ├── formatDate.js
+│   └── storage.js          # Token / localStorage
+│
+├── context/               # (Optionnel mais conseillé)
+│   └── AuthContext.jsx     # Stocke l’utilisateur connecté
+│
+├── assets/                # Logos, images, icônes
+├── styles/                # CSS global ou Tailwind
+├── App.jsx                # Layout + Routes
+└── main.jsx               # Point d’entrée React

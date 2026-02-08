@@ -1,0 +1,109 @@
+Structure du projet (backend & frontend)
+========================================
+
+Racine : Gestion_school
+
+Fichiers à la racine
+--------------------
+  .env                 (variables d'environnement, ne pas commiter)
+  .env.example         (modèle : MONGO_URI, JWT_SECRET, PORT, FRONTEND_URL)
+  DEPLOIEMENT.md       (guide d'hébergement : Atlas, Render/Railway, Vercel/Netlify)
+  hashPassword.js      (utilitaire pour hasher les mots de passe)
+  package.json
+  structure_projet.txt (ce fichier)
+
+
+1) Backend (Node.js / Express)
+------------------------------
+
+src/
+  server.js            (CORS via FRONTEND_URL, helmet, rate-limit, routes /api/*)
+  config/
+    db.js
+  controllers/
+    alerteController.js
+    authController.js
+    classeController.js
+    coursController.js
+    evaluationController.js
+    justificationController.js
+    notificationController.js
+    presenceController.js
+    statisticsController.js
+    userController.js
+  middleware/
+    authMiddleware.js
+  models/
+    AdminModel.js
+    AlerteModel.js
+    ClasseModel.js
+    CoursModel.js
+    EvaluationProfModel.js
+    JustificationModel.js
+    NotificationModel.js
+    ParametreModel.js
+    PresenceModel.js
+    UserModel.js
+  routes/
+    admin.js
+    alerteRoutes.js
+    authRoutes.js
+    classeRoutes.js
+    coursRoutes.js
+    evaluationRoutes.js
+    justificationRoutes.js
+    notificationRoutes.js
+    presenceRoutes.js
+    statisticsRoutes.js
+    userRoutes.js
+
+
+2) Frontend (React / Vite)
+---------------------------
+
+gestion-school-front/
+  .env.example         (modèle : VITE_API_URL pour dev/prod)
+  package.json
+  vite.config.js
+  index.html
+  src/
+    main.jsx
+    App.jsx
+    App.css
+    index.css
+    assets/
+      react.svg
+    components/
+      JustificationForm.jsx
+      Sidebar.jsx
+    context/
+      AuthContext.jsx
+      ErrorContext.jsx   (showError, showSuccess, hideError)
+    pages/
+      Login.jsx
+      NotFound.jsx       (page 404)
+      dashboard/
+        DashboardAdmin.jsx
+        DashboardAdmin.css
+        DashboardEleve.jsx
+        DashboardEleve.css
+        DashboardProf.jsx
+        DashboardProf.css
+    services/
+      api.js             (base URL via import.meta.env.VITE_API_URL)
+      auth.js
+    utils/
+      formatDate.js
+      storage.js
+
+
+Rôles et dashboards
+-------------------
+  Admin  : DashboardAdmin  (vue d'ensemble, classes, cours, présences, justifications, alertes, convocations, stats)
+  Prof   : DashboardProf   (appels, élèves de ses cours, alertes de convocation)
+  Élève  : DashboardEleve  (présences, justifications, alertes « 3 absences non justifiées »)
+
+
+Remarque
+--------
+Les dossiers de dépendances (node_modules, etc.) sont ignorés dans cette vue.
